@@ -97,7 +97,7 @@
       <Link>Data\SQLite.cs</Link>
     </Compile>
     <Compile Include="UI\GraphView.cs" />
-    <Compile Include="UI\SparklineChart.cs" />
+    <Compile Include="UI\TelemetryGraph.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

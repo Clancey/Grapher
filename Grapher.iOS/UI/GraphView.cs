@@ -7,7 +7,7 @@ namespace Grapher
 {
 	public class GraphView : UIViewController
 	{
-		SparklineChart chart;
+		TelemetryGraph chart;
 		public GraphView ()
 		{
 
@@ -20,10 +20,10 @@ namespace Grapher
 			for(int i = 0;i <= 100;i++)
 			{
 				float d = (float)Math.Sqrt(i);
-				Console.WriteLine(d);
+				//Console.WriteLine(d);
 				data.Add(new Oxygen(){Value = d,Timestamp = DateTime.Now.AddSeconds(i * .5)});
 			}
-			chart = new SparklineChart()
+			chart = new TelemetryGraph()
 			{
 				Data = data,
 				LineColor = UIColor.Black,

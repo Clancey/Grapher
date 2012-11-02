@@ -10,10 +10,10 @@ using System.Timers;
 
 namespace Grapher
 {
-	public class SparklineChart
+	public class TelemetryGraph
 		: View
 	{
-		public SparklineChart (Context context)
+		public TelemetryGraph (Context context)
 			: base (context)
 		{
 		}
