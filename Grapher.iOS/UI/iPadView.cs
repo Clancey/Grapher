@@ -8,10 +8,12 @@ namespace Grapher
 	{
 		GraphViewController graphVc;
 		TableViewController tableVc;
-		public iPadView ()
+		public iPadView (iPadViewController parent)
 		{
 			graphVc = new GraphViewController();
 			tableVc = new TableViewController();
+			parent.AddChildViewController(graphVc);
+			parent.AddChildViewController(tableVc);
 			this.AddSubview(graphVc.View);
 			this.AddSubview(tableVc.View);
 		}
@@ -23,11 +25,6 @@ namespace Grapher
 			graphVc.View.Frame = rect;
 			rect.Y = rect.Bottom + padding;
 			tableVc.View.Frame = rect;
-		}
-		public void DidRotate (UIInterfaceOrientation fromInterfaceOrientation)
-		{
-			graphVc.DidRotate(fromInterfaceOrientation);
-			tableVc.DidRotate(fromInterfaceOrientation);
 		}
 	}
 }

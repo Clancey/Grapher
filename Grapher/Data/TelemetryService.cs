@@ -26,7 +26,7 @@ namespace Grapher
 		public TelemetryService() {
 			Console.WriteLine("Initializing Service..");
 
-#if DROID
+#if true
 			webSocket = new WebSocket("ws://10.0.1.15:1337/");
 #else
 			

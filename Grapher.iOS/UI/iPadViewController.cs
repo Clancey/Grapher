@@ -12,12 +12,7 @@ namespace Grapher
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			View = new iPadView();
-		}
-		public override void DidRotate (UIInterfaceOrientation fromInterfaceOrientation)
-		{
-			base.DidRotate (fromInterfaceOrientation);
-			((iPadView)this.View).DidRotate(fromInterfaceOrientation);
+			View = new iPadView(this);
 		}
 	}
 }

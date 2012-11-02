@@ -18,16 +18,19 @@ namespace Grapher
 				new Section(){
 					new StringElement("Graphs",delegate{
 						Console.WriteLine("graphs tapped");
+						this.NavigationController.PushViewController(new GraphViewController(),true);
 					}),
 				},
 				new Section(){
 					new StringElement("Table",delegate{
 						Console.WriteLine("Tables tapped");
+						this.NavigationController.PushViewController(new TableViewController(),true);
 					}),
 				},
 				new Section(){
 					new StringElement("Play Movie",delegate{
 						Console.WriteLine("Play Movie");
+						this.NavigationController.PushViewController(new MovieViewController(),true);
 					}),
 				}
 			};

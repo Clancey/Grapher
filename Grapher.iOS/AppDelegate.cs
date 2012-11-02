@@ -34,7 +34,7 @@ namespace Grapher.iOS
 			if(UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
 				window.RootViewController = new iPadViewController();
 			else
-				window.RootViewController = new iPhoneViewController();
+				window.RootViewController = new UINavigationController(new iPhoneViewController());
 			// make the window visible
 			window.MakeKeyAndVisible ();
 

@@ -21,27 +21,6 @@ namespace Grapher
 		{
 
 		}
-		Timer timer;
-		public void StartAnimating()
-		{
-			if(timer != null)
-				return;
-			timer = new Timer(500);
-			timer.Elapsed += delegate {
-				this.BeginInvokeOnMainThread(delegate{
-					this.SetNeedsDisplay();
-				});
-			};
-			timer.Start();
-
-		}
-		public void StopAnimating()
-		{
-			if(timer == null)
-				return;
-			timer.Stop();
-			timer = null;
-		}
 
 		public UIColor LineColor
 		{
