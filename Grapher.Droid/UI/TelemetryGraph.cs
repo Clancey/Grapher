@@ -7,6 +7,7 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Views;
 using System.Timers;
+using Android.Util;
 
 namespace Grapher
 {
@@ -16,12 +17,20 @@ namespace Grapher
 		public TelemetryGraph (Context context)
 			: base (context)
 		{
+			Console.WriteLine("Graph");
+			this.SetBackgroundColor(Color.Black);
+			LineColor = Color.White;
 		}
-
+		public TelemetryGraph(Context context, IAttributeSet attr) : base(context,attr)
+		{
+			Console.WriteLine("Graph");
+			this.SetBackgroundColor(Color.Black);
+			LineColor = Color.White;
+		}
 		public List<Telemetry> Data{
 			get{return data;}
 			set{
-				data = value.Where(x=> x.Timestamp >= (DateTime.Now.AddMinutes(-1))).ToList();
+				data = value;
 				SetupMinMax();
 			}
 		}
@@ -50,29 +59,6 @@ namespace Grapher
 					this.max = value;
 			}
 		}
-
-		Timer timer;
-		public void StartAnimating()
-		{
-			if(timer != null)
-				return;
-			timer = new Timer(500);
-			timer.Elapsed += delegate {
-				//this.Context.Run(delegate{
-					this.Invalidate();
-				//});
-			};
-			timer.Start();
-
-		}
-		public void StopAnimating()
-		{
-			if(timer == null)
-				return;
-			timer.Stop();
-			timer = null;
-		}
-
 		protected override void OnDraw (Canvas canvas)
 		{
 			if (this.data == null || this.data.Count() == 0)

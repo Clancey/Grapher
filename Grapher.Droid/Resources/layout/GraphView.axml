@@ -3,16 +3,16 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <View
-        android:layout_width="wrap_content"
+    <Grapher.TelemetryGraph
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/view1"
+        android:id="@+id/graph1"
         android:layout_weight="50"
         android:background="#ff2de3ca" />
-    <View
-        android:layout_width="wrap_content"
+    <Grapher.TelemetryGraph
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/view2"
+        android:id="@+id/graph2"
         android:background="#ffec2626"
         android:layout_weight="50" />
 </LinearLayout>

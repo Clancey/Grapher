@@ -24,16 +24,28 @@ namespace Grapher
 		}
 		static Database main;
 
-		public List<Oxygen> GetOxygen(int sourceId)
+		public List<Oxygen> GetOxygen(int sourceId, DateTime since)
 		{
-			return this.Table<Oxygen>().Where(x=> x.SourceId == sourceId).ToList();
+			return this.Table<Oxygen>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).ToList();
 		}
-		public Task<List<Oxygen>> GetOxygenAsync(int sourceId)
+		public Task<List<Oxygen>> GetOxygenAsync(int sourceId, DateTime since)
 		{
 			return Task.Factory.StartNew(delegate{
-				return GetOxygen(sourceId);
+				return GetOxygen(sourceId,since);
 			});
 		}
+
+		public List<CO2> GetCo2(int sourceId, DateTime since)
+		{
+			return this.Table<CO2>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).ToList();
+		}
+		public Task<List<CO2>> GetCo2Async(int sourceId, DateTime since)
+		{
+			return Task.Factory.StartNew(delegate{
+				return GetCo2(sourceId,since);
+			});
+		}
+
 
 		public bool InsertTelemetry(List<Telemetry> telemetry)
 		{

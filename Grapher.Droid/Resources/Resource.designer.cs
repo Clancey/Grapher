@@ -43,14 +43,14 @@ namespace Grapher
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int myButton = 2131034114;
-			
 			// aapt resource value: 0x7f050000
-			public const int view1 = 2131034112;
+			public const int graph1 = 2131034112;
 			
 			// aapt resource value: 0x7f050001
-			public const int view2 = 2131034113;
+			public const int graph2 = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int myButton = 2131034114;
 			
 			private Id()
 			{
@@ -81,6 +81,16 @@ namespace Grapher
 			public const int hello = 2130968576;
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] TelemetryGraph;
+			
+			private Styleable()
 			{
 			}
 		}

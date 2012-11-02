@@ -1,13 +1,16 @@
 using System;
 using MonoTouch.UIKit;
 using System.Collections.Generic;
+using System.Timers;
+using System.Linq;
 
 
 namespace Grapher
 {
 	public class GraphView : UIViewController
 	{
-		TelemetryGraph chart;
+		TelemetryGraph oxygenGraph;
+		TelemetryGraph co2Graph;
 		public GraphView ()
 		{
 
@@ -15,29 +18,46 @@ namespace Grapher
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			Random rand = new Random();
-			var data = new List<Telemetry>();
-			for(int i = 0;i <= 100;i++)
+			oxygenGraph = new TelemetryGraph()
 			{
-				float d = (float)Math.Sqrt(i);
-				//Console.WriteLine(d);
-				data.Add(new Oxygen(){Value = d,Timestamp = DateTime.Now.AddSeconds(i * .5)});
-			}
-			chart = new TelemetryGraph()
-			{
-				Data = data,
 				LineColor = UIColor.Black,
+				BackgroundColor = UIColor.White,
 			};
-			chart.BackgroundColor = UIColor.White;
-			this.View = chart;
+			this.View = oxygenGraph;
 		}
 		public override void ViewDidAppear (bool animated)
 		{
-			chart.StartAnimating();
+			StartAnimating();
 		}
 		public override void ViewDidDisappear (bool animated)
 		{
-			chart.StopAnimating();
+			StopAnimating();
+		}
+		
+		Timer timer;
+		public void StartAnimating()
+		{
+			if(timer != null)
+				return;
+			timer = new Timer(1000);
+			timer.Elapsed += delegate {
+				var since = DateTime.UtcNow.AddMinutes(-1);
+				var oData = Database.Main.GetOxygen(1,since).Cast<Telemetry>().ToList();
+				//var coData = Database.Main.GetCo2(1,since).Cast<Telemetry>().ToList();
+				this.InvokeOnMainThread(delegate{
+					oxygenGraph.Data = oData;
+					//co2Graph.Data = coData;
+				});
+			};
+			timer.Start();
+
+		}
+		public void StopAnimating()
+		{
+			if(timer == null)
+				return;
+			timer.Stop();
+			timer = null;
 		}
 	}
 }

@@ -2,4 +2,6 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">Grapher.Droid</string>
+	 <declare-styleable name="TelemetryGraph">
+   </declare-styleable>
 </resources>
