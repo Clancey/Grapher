@@ -57,7 +57,7 @@ namespace Grapher
 		public List<Telemetry> Data{
 			get{return data;}
 			set{
-				data = value.Where(x=> x.Timestamp >= (DateTime.Now.AddMinutes(-1))).ToList();
+				data = value;
 				SetupMinMax();
 				this.SetNeedsDisplay();
 			}
@@ -115,7 +115,7 @@ namespace Grapher
 			for (int i = 0; i < d.Count(); i++)
 			{
 				var telemetry = d[i];
-				var x = ((float)(telemetry.Timestamp - DateTime.Now).TotalSeconds * xscale) + Bounds.Width;
+				var x = ((float)(telemetry.Timestamp - DateTime.UtcNow).TotalSeconds * xscale) + Bounds.Width;
 				var y = (mx - telemetry.Value) * yscale;
 				//Console.WriteLine("X:{0} , Y:{1}",x,y);
 				context.AddLineToPoint (x,y );

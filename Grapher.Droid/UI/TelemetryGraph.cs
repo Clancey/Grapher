@@ -85,7 +85,7 @@ namespace Grapher
 			for (int i = 1; i < this.data.Count(); i++)
 			{
 				var telemetry = data[i];
-				var x = ((float)(telemetry.Timestamp - DateTime.Now).TotalSeconds * xscale) + (float)canvas.Width;
+				var x = ((float)(telemetry.Timestamp - DateTime.UtcNow).TotalSeconds * xscale) + (float)canvas.Width;
 				var y = (mx - telemetry.Value) * yscale;
 				path.LineTo (x,y);
 			}
