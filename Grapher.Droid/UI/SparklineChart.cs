@@ -41,7 +41,7 @@ namespace Grapher
 			this.max = Single.MinValue;
 			this.min = Single.MaxValue;
 
-			for (int i = 0; i < this.data.Length; i++)
+			for (int i = 0; i < this.data.Count(); i++)
 			{
 				float value = this.data[i];
 				if (value < min)
@@ -58,9 +58,9 @@ namespace Grapher
 				return;
 			timer = new Timer(500);
 			timer.Elapsed += delegate {
-				this.RunOnUiThread(delegate{
+				//this.Context.Run(delegate{
 					this.Invalidate();
-				});
+				//});
 			};
 			timer.Start();
 

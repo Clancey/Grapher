@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9B309397-E2B4-4F21-8AF6-BD869EF0CEFB}</ProjectGuid>
+    <ProjectGuid>{D4C2B3B0-ED5F-4AB7-86C8-684534231AF9}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>Grapher</RootNamespace>
@@ -22,7 +22,6 @@
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>False</ConsolePause>
@@ -31,7 +30,6 @@
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
@@ -47,6 +45,7 @@
     <Compile Include="Activity1.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\SparklineChart.cs" />
     <Compile Include="..\Grapher\Data\Database.cs">
       <Link>Data\Database.cs</Link>
     </Compile>
@@ -62,7 +61,6 @@
     <Compile Include="..\Grapher\Models\Telemetry.cs">
       <Link>Models\Telemetry.cs</Link>
     </Compile>
-    <Compile Include="UI\SparklineChart.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -75,8 +73,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="UI\" />
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\" />
   </ItemGroup>
 </Project>
