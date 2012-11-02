@@ -43,7 +43,7 @@
     <Compile Include="Models\CO2.cs" />
     <Compile Include="Data\SQLite.cs" />
     <Compile Include="Data\Database.cs" />
-    <Compile Include="TelemetryService.cs" />
+    <Compile Include="Data\TelemetryService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

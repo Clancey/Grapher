@@ -3,13 +3,13 @@
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <View
+    <Grapher.TelemetryGraph
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/graph1"
         android:layout_weight="50"
         android:background="#ff2de3ca" />
-    <View
+    <Grapher.TelemetryGraph
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/graph2"

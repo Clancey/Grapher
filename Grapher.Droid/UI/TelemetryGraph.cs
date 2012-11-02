@@ -32,6 +32,7 @@ namespace Grapher
 			set{
 				data = value;
 				SetupMinMax();
+				this.Invalidate();
 			}
 		}
 
@@ -76,8 +77,9 @@ namespace Grapher
 			this.paint.Color = LineColor;
 
 			float mx = this.max;
-			float yscale = canvas.Height / (mx - this.min);
-			float xscale = (float)canvas.Width / 60;
+			Console.WriteLine(this);
+			float yscale = (float)canvas.ClipBounds.Height() / (mx - this.min);
+			float xscale = (float)canvas.ClipBounds.Width() / 60;
 
 			Path path = new Path();
 			path.MoveTo (0, (mx - this.data[0].Value) * yscale);
@@ -85,7 +87,7 @@ namespace Grapher
 			for (int i = 1; i < this.data.Count(); i++)
 			{
 				var telemetry = data[i];
-				var x = ((float)(telemetry.Timestamp - DateTime.UtcNow).TotalSeconds * xscale) + (float)canvas.Width;
+				var x = ((float)(telemetry.Timestamp - DateTime.UtcNow).TotalSeconds * xscale) + (float)canvas.ClipBounds.Width();
 				var y = (mx - telemetry.Value) * yscale;
 				path.LineTo (x,y);
 			}

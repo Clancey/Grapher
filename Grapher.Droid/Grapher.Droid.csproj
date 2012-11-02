@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>False</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;DROID</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>False</ConsolePause>
@@ -35,6 +35,7 @@
     <ConsolePause>False</ConsolePause>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <DefineConstants>DROID</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -42,6 +43,9 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="System.Json" />
+    <Reference Include="WebSocket4Net.MonoTouch">
+      <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
@@ -64,6 +68,9 @@
     </Compile>
     <Compile Include="UI\TelemetryGraph.cs" />
     <Compile Include="UI\GraphActivity.cs" />
+    <Compile Include="..\Grapher\Data\TelemetryService.cs">
+      <Link>Data\TelemetryService.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

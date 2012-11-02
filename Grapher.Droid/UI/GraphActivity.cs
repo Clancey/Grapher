@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using System.Timers;
+using Android.Graphics;
 
 namespace Grapher
 {
@@ -26,7 +27,11 @@ namespace Grapher
 			SetContentView (Resource.Layout.GraphView);
 			
 			oxygenGraph = FindViewById<TelemetryGraph> (Resource.Id.graph1);
+			oxygenGraph.LineColor = Color.Red;
 			co2Graph = FindViewById<TelemetryGraph> (Resource.Id.graph2);
+			co2Graph.LineColor = Color.LightSteelBlue;
+			
+			var instance = TelemetryService.Instance;
 		}
 		protected override void OnResume ()
 		{

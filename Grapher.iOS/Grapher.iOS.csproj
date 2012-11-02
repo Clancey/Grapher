@@ -102,8 +102,8 @@
     </Compile>
     <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\TelemetryGraph.cs" />
-    <Compile Include="..\Grapher\TelemetryService.cs">
-      <Link>WebSocketService.cs</Link>
+    <Compile Include="..\Grapher\Data\TelemetryService.cs">
+      <Link>Data\TelemetryService.cs</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
