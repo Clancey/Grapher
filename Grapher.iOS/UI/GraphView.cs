@@ -1,63 +1,80 @@
 using System;
 using MonoTouch.UIKit;
-using System.Collections.Generic;
-using System.Timers;
-using System.Linq;
-
+using System.Drawing;
 
 namespace Grapher
 {
-	public class GraphView : UIViewController
+	public class GraphView : UIView
 	{
-		TelemetryGraph oxygenGraph;
-		TelemetryGraph co2Graph;
+
+		public TelemetryGraph OxygenGraph;
+		public TelemetryGraph Co2Graph;
+		UIInterfaceOrientation orientation;
+		public UIInterfaceOrientation Orientation{
+			get{return orientation;}
+			set{
+				if(orientation == value)return;
+				orientation = value;
+				this.LayoutSubviews();
+				this.SetNeedsDisplay();
+			}
+		}
 		public GraphView ()
 		{
-
-		}
-		public override void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
-			oxygenGraph = new TelemetryGraph()
+			OxygenGraph = new TelemetryGraph()
 			{
-				LineColor = UIColor.Black,
+				LineColor = UIColor.Red,
 				BackgroundColor = UIColor.White,
 			};
-			this.View = oxygenGraph;
-		}
-		public override void ViewDidAppear (bool animated)
-		{
-			StartAnimating();
-		}
-		public override void ViewDidDisappear (bool animated)
-		{
-			StopAnimating();
-		}
-		
-		Timer timer;
-		public void StartAnimating()
-		{
-			if(timer != null)
-				return;
-			timer = new Timer(1000);
-			timer.Elapsed += delegate {
-				var since = DateTime.UtcNow.AddMinutes(-1);
-				var oData = Database.Main.GetOxygen(1,since).Cast<Telemetry>().ToList();
-				//var coData = Database.Main.GetCo2(1,since).Cast<Telemetry>().ToList();
-				this.InvokeOnMainThread(delegate{
-					oxygenGraph.Data = oData;
-					//co2Graph.Data = coData;
-				});
+			Co2Graph = new TelemetryGraph()
+			{
+				LineColor = UIColor.Blue,
+				BackgroundColor = UIColor.White,
 			};
-			timer.Start();
+			this.AddSubview(OxygenGraph);
+			this.AddSubview(Co2Graph);
+		}
+		public override void LayoutSubviews ()
+		{
+			switch(orientation)
+			{
+			case UIInterfaceOrientation.LandscapeLeft:
+			case UIInterfaceOrientation.LandscapeRight:
+				layoutLandScape();
+				break;
+			default:
+				layoutPortrait();
+				break;
+			}
+		}
+		const float padding = 10;
+		void layoutLandScape()
+		{
+			var x = 0;
+			var y = padding;
+			var width = (this.Bounds.Width - padding)/2;
+			var height = Bounds.Height;
+
+			var rect = new RectangleF(x,y,width,height);
+			OxygenGraph.Frame = rect;
+
+			rect.X = rect.Right + padding;
+			Co2Graph.Frame = rect;
 
 		}
-		public void StopAnimating()
+		void layoutPortrait()
 		{
-			if(timer == null)
-				return;
-			timer.Stop();
-			timer = null;
+			
+			var x = 0;
+			var y = padding;
+			var height = (this.Bounds.Height - padding)/2;
+			var width = Bounds.Width;
+
+			var rect = new RectangleF(x,y,width,height);
+			OxygenGraph.Frame = rect;
+
+			rect.Y = rect.Bottom + padding;
+			Co2Graph.Frame = rect;
 		}
 	}
 }
