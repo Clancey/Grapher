@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapher", "Grapher\Grapher.csproj", "{0AF722D6-EB92-445F-8912-6BB2A510D6F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grapher.iOS", "Grapher.iOS\Grapher.iOS.csproj", "{7E26D20E-04BB-4C04-8FDB-A7A63256658A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AF722D6-EB92-445F-8912-6BB2A510D6F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF722D6-EB92-445F-8912-6BB2A510D6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF722D6-EB92-445F-8912-6BB2A510D6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF722D6-EB92-445F-8912-6BB2A510D6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|iPhone.Build.0 = Debug|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|iPhone.ActiveCfg = Release|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|iPhone.Build.0 = Release|iPhone
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{7E26D20E-04BB-4C04-8FDB-A7A63256658A}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Grapher\Grapher.csproj
+	EndGlobalSection
+EndGlobal
