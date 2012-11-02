@@ -37,7 +37,7 @@ namespace Grapher
 
 		public List<CO2> GetCo2(int sourceId, DateTime since)
 		{
-			return this.Table<CO2>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).OrderBy(x=> x.Timestamp).ToList();
+			return this.Table<CO2>().Where(x=> x.SourceId == sourceId).Take(100).OrderBy(x=> x.Timestamp).ToList();
 		}
 		public Task<List<CO2>> GetCo2Async(int sourceId, DateTime since)
 		{

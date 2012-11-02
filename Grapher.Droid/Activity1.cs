@@ -24,15 +24,20 @@ namespace Grapher.Droid
 			// and attach an event to it
 			var button = FindViewById<Button> (Resource.Id.myButton);
 			button.Click += delegate {
-
+				StartActivity(typeof(GraphActivity));
 			};
 			
 			var button2 = FindViewById<Button> (Resource.Id.button2);
 			button2.Click += delegate {
-
+				StartActivity(typeof(ListViewActivity));
 			};
 
-			//TelemetryService.Instance.StartListening();
+			var button3 = FindViewById<Button>(Resource.Id.movieBtn);
+			button3.Click += (sender, e) => {
+				StartActivity(typeof(VideoPlayer));
+			};
+
+			TelemetryService.Instance.StartListening();
 		}
 	}
 }

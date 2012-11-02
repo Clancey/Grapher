@@ -16,6 +16,7 @@ namespace Grapher
 	[Activity (Label = "ListViewActivity")]			
 	public class ListViewActivity : ListActivity
 	{
+		public List<Telemetry> Data = new List<Telemetry>();
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -23,8 +24,25 @@ namespace Grapher
 			// Create your application here
 			
 			//TelemetryService.Instance.StartListening();
+			this.ListAdapter = new ListViewAdapter(this);
+		}
+		protected override void OnResume ()
+		{
+			base.OnResume ();
+			reloadData();
+
 		}
 
+		void reloadData()
+		{
+			var since = DateTime.UtcNow.AddMinutes(-1);
+			Database.Main.GetCo2Async(1,since).ContinueWith(t=> {
+				this.RunOnUiThread(() => {
+					Data = t.Result.Cast<Telemetry>().ToList();
+					ListAdapter = new ListViewAdapter(this);
+				});
+			});
+		}
 		public class ListViewAdapter : BaseAdapter<Telemetry>
 		{
 			ListViewActivity Parent;
@@ -38,7 +56,7 @@ namespace Grapher
 
 			public override long GetItemId (int position)
 			{
-				throw new NotImplementedException ();
+				return 0;
 			}
 
 			public override View GetView (int position, View convertView, ViewGroup parent)
@@ -46,13 +64,14 @@ namespace Grapher
 				View view = convertView; // re-use an existing view, if one is available
 				if (view == null) // otherwise create a new one
 					view = Parent.LayoutInflater.Inflate (Android.Resource.Layout.SimpleListItem1, null);
-				//view.FindViewById<TextView> (Android.Resource.Id.Text1).Text = items [position];
+				var tel = Parent.Data[position];
+				view.FindViewById<TextView> (Android.Resource.Id.Text1).Text = string.Format("Name:{0} Value:{1}",tel.Name,tel.Value);
 				return view;
 			}
 
 			public override int Count {
 				get {
-					throw new NotImplementedException ();
+					return Parent.Data.Count;
 				}
 			}
 
@@ -62,7 +81,7 @@ namespace Grapher
 
 			public override Telemetry this [int position] {
 				get {
-					throw new NotImplementedException ();
+					return Parent.Data[position];
 				}
 			}
 
