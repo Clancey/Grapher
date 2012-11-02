@@ -59,8 +59,7 @@ namespace Grapher
 				if (value > max)
 					this.max = value;
 			}
-		}
-		protected override void OnDraw (Canvas canvas)
+		}		protected override void OnDraw (Canvas canvas)
 		{
 			if (this.data == null || this.data.Count() == 0)
 			{

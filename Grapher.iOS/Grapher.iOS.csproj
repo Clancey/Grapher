@@ -111,6 +111,7 @@
     <Compile Include="UI\GraphViewController.cs" />
     <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\iPadView.cs" />
+    <Compile Include="UI\MovieViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

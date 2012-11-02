@@ -24,6 +24,11 @@ namespace Grapher
 					new StringElement("Table",delegate{
 						Console.WriteLine("Tables tapped");
 					}),
+				},
+				new Section(){
+					new StringElement("Play Movie",delegate{
+						Console.WriteLine("Play Movie");
+					}),
 				}
 			};
 		}
