@@ -84,6 +84,7 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\layout\GraphView.axml" />
     <AndroidResource Include="Resources\layout-land\GraphView.axml" />
+    <AndroidResource Include="Resources\layout\VideoPlayer.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>

@@ -43,6 +43,9 @@ namespace Grapher
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050004
+			public const int SampleVideoView = 2131034116;
+			
 			// aapt resource value: 0x7f050003
 			public const int button2 = 2131034115;
 			
@@ -68,6 +71,9 @@ namespace Grapher
 			
 			// aapt resource value: 0x7f030001
 			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int VideoPlayer = 2130903042;
 			
 			private Layout()
 			{
