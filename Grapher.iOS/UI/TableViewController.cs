@@ -1,5 +1,6 @@
 using System;
 using MonoTouch.UIKit;
+using MonoTouch.Foundation;
 
 namespace Grapher
 {
@@ -13,6 +14,15 @@ namespace Grapher
 		{
 			base.ViewDidLoad ();
 			this.TableView.Source = new MyDataSource(this);
+			this.RefreshControl = new UIRefreshControl();
+			RefreshControl.AttributedTitle = new NSAttributedString("Pull down to refresh...");
+			RefreshControl.ValueChanged += delegate {
+				//TODO: Get data
+				TableView.ReloadData();
+				RefreshControl.AttributedTitle = new NSAttributedString(String.Format ("Last Updated: {0:g}",DateTime.Now));
+				RefreshControl.EndRefreshing();
+			};
+
 		}
 
 		public class MyDataSource : UITableViewSource

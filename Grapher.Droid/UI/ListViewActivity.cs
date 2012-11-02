@@ -21,6 +21,8 @@ namespace Grapher
 			base.OnCreate (bundle);
 
 			// Create your application here
+			
+			//TelemetryService.Instance.StartListening();
 		}
 	}
 }

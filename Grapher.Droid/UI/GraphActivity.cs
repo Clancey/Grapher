@@ -31,7 +31,7 @@ namespace Grapher
 			co2Graph = FindViewById<TelemetryGraph> (Resource.Id.graph2);
 			co2Graph.LineColor = Color.LightSteelBlue;
 			
-			TelemetryService.Instance.StartListening();
+			//TelemetryService.Instance.StartListening();
 		}
 		protected override void OnResume ()
 		{
