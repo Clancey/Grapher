@@ -30,7 +30,7 @@ namespace Grapher.iOS
 			
 			// If you have defined a view, add it here:
 			// window.AddSubview (navigationController.View);
-			
+			window.RootViewController = new GraphView();
 			// make the window visible
 			window.MakeKeyAndVisible ();
 			
