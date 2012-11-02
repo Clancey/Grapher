@@ -36,8 +36,8 @@ namespace Grapher
 
 			var tele = new Telemetry();
 			tele.Name = (string)obj ["Name"];
-			tele.SourceId = int.Parse((string)obj["SourceId"]);
-			tele.Value = float.Parse((string)obj["Value"]);
+			tele.SourceId = (int)obj["SourceId"];
+			tele.Value = (float)obj["Value"];
 			tele.Timestamp = DateTime.Parse((string)obj["TimeStamp"]);
 			
 			Database.Main.InsertTelemetryAsync(tele);

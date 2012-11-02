@@ -12,6 +12,11 @@ wsServer = new WebSocketServer({
     httpServer: server
 });
 
+console.log("...");
+console.log("...");
+console.log("...");
+console.log("Starting WebSocket Service...");
+
 // WebSocket server
 wsServer.on('request', function(request) {
     var connection = request.accept(null, request.origin);
@@ -24,8 +29,6 @@ wsServer.on('request', function(request) {
             console.log(message);
             connection.send('hello');
         }
-
-        console.log('foo');
 
     });
 
