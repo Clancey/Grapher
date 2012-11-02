@@ -43,6 +43,9 @@ namespace Grapher
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050003
+			public const int button2 = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int graph1 = 2131034112;
 			

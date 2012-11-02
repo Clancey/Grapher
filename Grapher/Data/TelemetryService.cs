@@ -17,6 +17,10 @@ namespace Grapher
 				return instance;
 			}
 		}
+		public void StartListening()
+		{
+			Console.WriteLine("Started");
+		}
 
 		public TelemetryService() {
 			Console.WriteLine("Initializing Service..");

@@ -78,6 +78,7 @@
       <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
     </Reference>
     <Reference Include="System.Json" />
+    <Reference Include="MonoTouch.Dialog-1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,11 +101,16 @@
     <Compile Include="..\Grapher\Data\SQLite.cs">
       <Link>Data\SQLite.cs</Link>
     </Compile>
-    <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\TelemetryGraph.cs" />
     <Compile Include="..\Grapher\Data\TelemetryService.cs">
       <Link>Data\TelemetryService.cs</Link>
     </Compile>
+    <Compile Include="UI\TableViewController.cs" />
+    <Compile Include="UI\iPadViewController.cs" />
+    <Compile Include="UI\iPhoneViewController.cs" />
+    <Compile Include="UI\GraphViewController.cs" />
+    <Compile Include="UI\GraphView.cs" />
+    <Compile Include="UI\iPadView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

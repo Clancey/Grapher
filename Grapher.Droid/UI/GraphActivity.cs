@@ -15,7 +15,7 @@ using Android.Graphics;
 
 namespace Grapher
 {
-	[Activity (Label = "GraphActivity", MainLauncher = true)]			
+	[Activity (Label = "GraphActivity")]			
 	public class GraphActivity : Activity
 	{
 		TelemetryGraph oxygenGraph;
@@ -31,7 +31,7 @@ namespace Grapher
 			co2Graph = FindViewById<TelemetryGraph> (Resource.Id.graph2);
 			co2Graph.LineColor = Color.LightSteelBlue;
 			
-			var instance = TelemetryService.Instance;
+			TelemetryService.Instance.StartListening();
 		}
 		protected override void OnResume ()
 		{

@@ -31,12 +31,15 @@ namespace Grapher.iOS
 			
 			// If you have defined a view, add it here:
 			// window.AddSubview (navigationController.View);
-			window.RootViewController = new GraphView();
+			if(UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+				window.RootViewController = new iPadViewController();
+			else
+				window.RootViewController = new iPhoneViewController();
 			// make the window visible
 			window.MakeKeyAndVisible ();
 
 
-			var instance = TelemetryService.Instance;
+			TelemetryService.Instance.StartListening();
 			return true;
 		}
 	}

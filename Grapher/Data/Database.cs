@@ -26,7 +26,7 @@ namespace Grapher
 
 		public List<Oxygen> GetOxygen(int sourceId, DateTime since)
 		{
-			return this.Table<Oxygen>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).ToList();
+			return this.Table<Oxygen>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).OrderBy(x=> x.Timestamp).ToList();
 		}
 		public Task<List<Oxygen>> GetOxygenAsync(int sourceId, DateTime since)
 		{
@@ -37,7 +37,7 @@ namespace Grapher
 
 		public List<CO2> GetCo2(int sourceId, DateTime since)
 		{
-			return this.Table<CO2>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).ToList();
+			return this.Table<CO2>().Where(x=> x.SourceId == sourceId && x.Timestamp >= since).OrderBy(x=> x.Timestamp).ToList();
 		}
 		public Task<List<CO2>> GetCo2Async(int sourceId, DateTime since)
 		{

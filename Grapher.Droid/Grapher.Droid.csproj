@@ -71,6 +71,7 @@
     <Compile Include="..\Grapher\Data\TelemetryService.cs">
       <Link>Data\TelemetryService.cs</Link>
     </Compile>
+    <Compile Include="UI\ListViewActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
