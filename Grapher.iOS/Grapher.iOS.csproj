@@ -77,6 +77,7 @@
     <Reference Include="WebSocket4Net.MonoTouch">
       <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
     </Reference>
+    <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

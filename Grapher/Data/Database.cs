@@ -57,6 +57,16 @@ namespace Grapher
 
 		}
 
+		public bool InsertTelemetry(Telemetry tele) {
+			return this.Insert(tele, tele.GetType()) == 1;
+		}
+
+		public Task<bool> InsertTelemetryAsync(Telemetry tele) {
+			return Task.Factory.StartNew<bool>(() => {
+				return this.InsertTelemetry(tele);
+			});
+		}
+
 	}
 }
 
