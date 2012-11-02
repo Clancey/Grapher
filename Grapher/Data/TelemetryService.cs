@@ -1,6 +1,7 @@
 using System;
 using WebSocket4Net;
-using System.Json;
+using SimpleJson;
+
 
 namespace Grapher
 {
@@ -38,15 +39,20 @@ namespace Grapher
 
 		void webSocket_MessageReceived (object sender, MessageReceivedEventArgs e)
 		{
-			var obj = JsonObject.Parse (e.Message);
+
+			var obj = (JsonObject)SimpleJson.SimpleJson.DeserializeObject(e.Message);
+
+
+			//var obj = new JsonObject();
+			//obj.
 			if (obj == null) {
 				return;
 			}
 
 			var tele = new Telemetry();
 			tele.Name = (string)obj ["Name"];
-			tele.SourceId = (int)obj["SourceId"];
-			tele.Value = (float)obj["Value"];
+			tele.SourceId = Int32.Parse(obj["SourceId"].ToString());
+			tele.Value = float.Parse(obj["Value"].ToString());
 			tele.Timestamp = DateTime.Parse((string)obj["TimeStamp"]);
 			
 			Database.Main.InsertTelemetryAsync(tele);

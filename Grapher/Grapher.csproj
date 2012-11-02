@@ -34,7 +34,6 @@
     <Reference Include="WebSocket4Net.MonoTouch">
       <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
     </Reference>
-    <Reference Include="System.Json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -44,6 +43,7 @@
     <Compile Include="Data\SQLite.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\TelemetryService.cs" />
+    <Compile Include="Data\SimpleJson.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

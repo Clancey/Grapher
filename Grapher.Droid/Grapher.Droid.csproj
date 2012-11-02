@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="UI\ListViewActivity.cs" />
     <Compile Include="UI\VideoPlayer.cs" />
+    <Compile Include="..\Grapher\Data\SimpleJson.cs">
+      <Link>Data\SimpleJson.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

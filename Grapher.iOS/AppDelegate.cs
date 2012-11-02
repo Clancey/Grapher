@@ -39,7 +39,7 @@ namespace Grapher.iOS
 			window.MakeKeyAndVisible ();
 
 
-			//TelemetryService.Instance.StartListening();
+			TelemetryService.Instance.StartListening();
 			return true;
 		}
 	}

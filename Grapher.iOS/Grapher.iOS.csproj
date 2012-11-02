@@ -112,6 +112,9 @@
     <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\iPadView.cs" />
     <Compile Include="UI\MovieViewController.cs" />
+    <Compile Include="..\Grapher\Data\SimpleJson.cs">
+      <Link>Data\SimpleJson.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
