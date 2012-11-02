@@ -4,6 +4,7 @@ using System.Linq;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using Grapher;
 
 namespace Grapher.iOS
 {
@@ -33,7 +34,9 @@ namespace Grapher.iOS
 			window.RootViewController = new GraphView();
 			// make the window visible
 			window.MakeKeyAndVisible ();
-			
+
+
+			var instance = TelemetryService.Instance;
 			return true;
 		}
 	}

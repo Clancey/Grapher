@@ -74,6 +74,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+    <Reference Include="WebSocket4Net.MonoTouch">
+      <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -98,6 +101,9 @@
     </Compile>
     <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\TelemetryGraph.cs" />
+    <Compile Include="..\Grapher\TelemetryService.cs">
+      <Link>WebSocketService.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
