@@ -27,7 +27,7 @@ namespace Grapher
 			Console.WriteLine("Initializing Service..");
 
 #if true
-			webSocket = new WebSocket("ws://10.0.1.15:1337/");
+			webSocket = new WebSocket("ws://10.0.1.7:1337/");
 #else
 			
 			webSocket = new WebSocket("ws://127.0.0.1:1337/");
