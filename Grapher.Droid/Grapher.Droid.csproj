@@ -15,7 +15,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>Grapher.Droid</AssemblyName>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,42 +40,39 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="System.Json" />
     <Reference Include="WebSocket4Net.MonoTouch">
-      <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
+      <HintPath>..\Dependencies\MonoDroid\WebSocket4Net.MonoTouch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="..\Grapher\Data\Database.cs">
-      <Link>Data\Database.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Data\SQLite.cs">
-      <Link>Data\SQLite.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Models\CO2.cs">
-      <Link>Models\CO2.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Models\Oxygen.cs">
-      <Link>Models\Oxygen.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Models\Telemetry.cs">
-      <Link>Models\Telemetry.cs</Link>
-    </Compile>
     <Compile Include="UI\TelemetryGraph.cs" />
     <Compile Include="UI\GraphActivity.cs" />
-    <Compile Include="..\Grapher\Data\TelemetryService.cs">
-      <Link>Data\TelemetryService.cs</Link>
-    </Compile>
     <Compile Include="UI\ListViewActivity.cs" />
     <Compile Include="UI\VideoPlayer.cs" />
-    <Compile Include="..\Grapher\Data\SimpleJson.cs">
-      <Link>Data\SimpleJson.cs</Link>
+    <Compile Include="..\Grapher.Core\Data\Database.cs">
+      <Link>Shared\Data\Database.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\SQLite.cs">
+      <Link>Shared\Data\SQLite.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\SimpleJson.cs">
+      <Link>Shared\Data\SimpleJson.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\TelemetryService.cs">
+      <Link>Shared\Data\TelemetryService.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\CO2.cs">
+      <Link>Shared\Models\CO2.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\Oxygen.cs">
+      <Link>Shared\Models\Oxygen.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\Telemetry.cs">
+      <Link>Shared\Models\Telemetry.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -91,11 +88,10 @@
     <AndroidResource Include="Resources\layout-land\GraphView.axml" />
     <AndroidResource Include="Resources\layout\VideoPlayer.axml" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="UI\" />
-    <Folder Include="Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Resources\layout-land\" />
+    <Folder Include="Shared\" />
   </ItemGroup>
 </Project>

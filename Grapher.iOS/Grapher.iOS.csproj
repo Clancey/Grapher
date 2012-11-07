@@ -23,6 +23,7 @@
     <MtouchLink>None</MtouchLink>
     <ConsolePause>False</ConsolePause>
     <MtouchProfiling>True</MtouchProfiling>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -74,11 +75,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="WebSocket4Net.MonoTouch">
-      <HintPath>..\Dependencies\WebSocket4Net.MonoTouch.dll</HintPath>
-    </Reference>
     <Reference Include="System.Json" />
     <Reference Include="MonoTouch.Dialog-1" />
+    <Reference Include="WebSocket4Net.MonoTouch">
+      <HintPath>..\Dependencies\MonoTouch\WebSocket4Net.MonoTouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -86,25 +87,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="..\Grapher\Models\CO2.cs">
-      <Link>Models\CO2.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Models\Oxygen.cs">
-      <Link>Models\Oxygen.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Models\Telemetry.cs">
-      <Link>Models\Telemetry.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Data\Database.cs">
-      <Link>Data\Database.cs</Link>
-    </Compile>
-    <Compile Include="..\Grapher\Data\SQLite.cs">
-      <Link>Data\SQLite.cs</Link>
-    </Compile>
     <Compile Include="UI\TelemetryGraph.cs" />
-    <Compile Include="..\Grapher\Data\TelemetryService.cs">
-      <Link>Data\TelemetryService.cs</Link>
-    </Compile>
     <Compile Include="UI\TableViewController.cs" />
     <Compile Include="UI\iPadViewController.cs" />
     <Compile Include="UI\iPhoneViewController.cs" />
@@ -112,14 +95,31 @@
     <Compile Include="UI\GraphView.cs" />
     <Compile Include="UI\iPadView.cs" />
     <Compile Include="UI\MovieViewController.cs" />
-    <Compile Include="..\Grapher\Data\SimpleJson.cs">
-      <Link>Data\SimpleJson.cs</Link>
+    <Compile Include="..\Grapher.Core\Data\Database.cs">
+      <Link>Shared\Data\Database.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\SQLite.cs">
+      <Link>Shared\Data\SQLite.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\SimpleJson.cs">
+      <Link>Shared\Data\SimpleJson.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Data\TelemetryService.cs">
+      <Link>Shared\Data\TelemetryService.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\CO2.cs">
+      <Link>Shared\Models\CO2.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\Oxygen.cs">
+      <Link>Shared\Models\Oxygen.cs</Link>
+    </Compile>
+    <Compile Include="..\Grapher.Core\Models\Telemetry.cs">
+      <Link>Shared\Models\Telemetry.cs</Link>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Data\" />
     <Folder Include="UI\" />
+    <Folder Include="Shared\" />
   </ItemGroup>
 </Project>
