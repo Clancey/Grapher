@@ -27,10 +27,10 @@ namespace Grapher
 			Console.WriteLine("Initializing Service..");
 
 #if true
-			webSocket = new WebSocket("ws://10.0.1.33:1337/");
+			webSocket = new WebSocket("ws://10.0.1.33:8080/");
 #else
 			
-			webSocket = new WebSocket("ws://127.0.0.1:1337/");
+			webSocket = new WebSocket("ws://127.0.0.1:8080/");
 #endif
 			webSocket.Opened += new EventHandler(websocket_Opened);
 			webSocket.MessageReceived += webSocket_MessageReceived;
